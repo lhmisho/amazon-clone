@@ -5,7 +5,12 @@ import './Header.css'
 const Header = () => {
     return (
         <div className="header">
-           <img src={logo} alt="" /> 
+            <img src={logo} alt="" />
+            <nav>
+                <a href="/hop">Shop</a>
+                <a href="/review">Review</a>
+                <a href="/manage">Manage Inventory</a>
+            </nav>
         </div>
     );
 };
