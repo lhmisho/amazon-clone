@@ -3,6 +3,7 @@ import fakeData from '../../fakeData'
 import Product from '../Product/Product'
 import Cart from '../Cart/Cart'
 import './Shop.css'
+import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 
 const Shop = () => {
@@ -14,6 +15,8 @@ const Shop = () => {
         console.log("Product added", product.name)
         const newCart = [...cart, product]
         setCart(newCart)
+        const sameProduct = newCart.filter(pd => pd.key === product.key)
+        addToDatabaseCart(product.key, sameProduct.length)
     }
 
     console.log(products)
