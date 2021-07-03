@@ -8,7 +8,7 @@ const Cart = (props) => {
     let grandTotal = (subTotal + shipping + Number(tax)).toFixed(2)
     return (
         <div>
-            <h4>Order Summery</h4>
+            <h4 className="text-danger">Order Summery</h4>
             <p>Items Orderd: {cart.length}</p>
             <p>Shipping: {shipping}</p>
             <p>Vat + Tax: {tax}</p>
