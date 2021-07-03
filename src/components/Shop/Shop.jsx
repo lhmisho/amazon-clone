@@ -19,7 +19,6 @@ const Shop = () => {
         addToDatabaseCart(product.key, sameProduct.length)
     }
 
-    console.log(products)
     return (
         <div className="shop-container">
             <div className="product-container">
