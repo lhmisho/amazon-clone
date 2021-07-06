@@ -3,8 +3,9 @@ import fakeData from '../../fakeData'
 import Product from '../Product/Product'
 import Cart from '../Cart/Cart'
 import './Shop.css'
-import {addToDatabaseCart, getDatabaseCart} from '../../utilities/databaseManager';
+import {addToDatabaseCart} from '../../utilities/databaseManager';
 import {fetchCart} from '../../utilities/fetchCart'
+import {Link} from "react-router-dom";
 
 const Shop = () => {
     const first10 = fakeData.slice(0,10)
@@ -39,7 +40,11 @@ const Shop = () => {
                 {products.map(product => <Product handleAddProduct={handleAddProduct} product={product}></Product>)}
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <Link to="/review">
+                        <button className="main-button">Review Order</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
