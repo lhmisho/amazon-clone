@@ -5,6 +5,7 @@ import fakeData from '../../fakeData';
 import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from "../Cart/Cart";
+import {fetchCart} from "../../utilities/fetchCart";
 
 const Review = () => {
     const [cart, setCart] = useState([])
@@ -16,17 +17,7 @@ const Review = () => {
     }
 
     useEffect(() => {
-        const savedCart = getDatabaseCart()
-        const productKeys = Object.keys(savedCart)
-
-        const cartProducts = productKeys.map(key => {
-            const product = fakeData.find(product => product.key === key);
-            product.quantity = savedCart[key];
-            return product
-        })
-        setCart(cartProducts)
-
-        console.log(cartProducts)
+        fetchCart(setCart)
     }, [])
 
     return (
