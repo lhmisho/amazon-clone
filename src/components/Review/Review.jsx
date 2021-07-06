@@ -4,6 +4,7 @@ import { useState } from 'react';
 import fakeData from '../../fakeData';
 import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import Cart from "../Cart/Cart";
 
 const Review = () => {
     const [cart, setCart] = useState([])
@@ -29,15 +30,20 @@ const Review = () => {
     }, [])
 
     return (
-        <div>
-            <h4>Total cart item: {cart.length}</h4>
-            {
-                cart.map((product, idx) => <ReviewItem
-                    key={idx}
-                    product={product}
-                    removeProduct={removeProduct}
-                />)
-            }
+        <div className="twin-container">
+            <div className="product-container">
+                <h4>Total cart item: {cart.length}</h4>
+                {
+                    cart.map((product, idx) => <ReviewItem
+                        key={idx}
+                        product={product}
+                        removeProduct={removeProduct}
+                    />)
+                }
+            </div>
+            <div className="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
     );
 };

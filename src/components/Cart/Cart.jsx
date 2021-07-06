@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const cart = props.cart
-    const subTotal = cart.reduce((total, prd) => total + prd.price, 0)
+    const subTotal = cart.reduce((total, prd) => total + (prd.price * prd.quantity), 0)
     const shipping = subTotal > 15 ? 4.99 : 0
     const tax = Number(subTotal / 10).toFixed(2)
     let grandTotal = (subTotal + shipping + Number(tax)).toFixed(2)
